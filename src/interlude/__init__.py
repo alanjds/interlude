@@ -19,7 +19,7 @@ def interact(locals=None, use_ipython=True):
     In your testcase or doctest you can invoke the shell at any point by
     calling::
         
-        >>> interact( locals() ) #doctest: +SKIP        
+        >>> interact( locals() ) 
         
     locals -- passed to InteractiveInterpreter.__init__()
     """
@@ -35,7 +35,7 @@ Ctrl-D ends session and continues testing.
     try:
         if use_ipython:
             from IPython.Shell import IPShellEmbed
-            ipshell = IPShellEmbed(user_ns=locals)
+            ipshell = IPShellEmbed(argv=[], user_ns=locals)
             ipshell()
         else:
             raise ImportError("Just use bare console")
